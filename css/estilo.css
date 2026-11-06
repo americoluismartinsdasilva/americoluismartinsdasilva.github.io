@@ -141,3 +141,11 @@ dialog.ficha::backdrop { background: rgba(42,20,25,.6); }
   .botao.vazado { margin: .8rem 0 0; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* Bibliografia completa */
+.biblio { max-width: 900px; margin: 0 auto 2.5rem; padding-left: 2.6rem; }
+.biblio li { padding: .9rem 0 .9rem .4rem; border-bottom: 1px solid var(--linha); font-size: 1.02rem; text-align: justify; hyphens: auto; }
+.biblio li::marker { font-family: var(--serif-titulo); color: var(--ouro); font-weight: 600; }
+.biblio strong { font-family: var(--serif-titulo); font-size: 1.12rem; color: var(--vinho-escuro); }
+.categoria { text-align: center; font-size: 1.3rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ouro); margin: 2rem 0 .8rem; }
+@media (max-width: 860px) { .biblio { padding-left: 1.6rem; } .biblio li { text-align: left; } }

@@ -2,7 +2,7 @@
 (function () {
   var paginas = [
     ["index.html", "Início"], ["obras.html", "Obras"], ["biografia.html", "Biografia"],
-    ["artigos.html", "Artigos"], ["contato.html", "Contato"]
+    ["bibliografia.html", "Bibliografia"], ["contato.html", "Contato"]
   ];
   var atual = location.pathname.split("/").pop() || "index.html";
 
