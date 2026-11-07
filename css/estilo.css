@@ -159,3 +159,4 @@ h3.bio-sec { font-size: 1.15rem; letter-spacing: .08em; color: var(--ouro); marg
 .bio-lista { padding-left: 2rem; margin: 0 0 1rem; max-width: none; }
 .bio-lista strong { font-size: 1.02rem; }
 .visite { margin-top: 2rem; }
+.bio-grade .texto p::first-letter { all: unset; }
