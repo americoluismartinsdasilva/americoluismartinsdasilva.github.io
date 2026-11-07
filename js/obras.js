@@ -100,7 +100,8 @@ window.OBRAS = [
   "ano": 2015,
   "desc": "Quatro contos: “A Borboleta Noturna”, “O Voo-Solo”, “Uma Voz na Noite” e “O Ocaso Vem do Rio”.",
   "img": "006.jpg",
-  "id": "l006"
+  "id": "l006",
+  "versao": "Com imagens"
  },
  {
   "n": 7,
@@ -114,7 +115,8 @@ window.OBRAS = [
   "paginas": "134",
   "ano": 2017,
   "img": "007.jpg",
-  "id": "l007"
+  "id": "l007",
+  "versao": "Sem imagens"
  },
  {
   "n": 8,
@@ -151,7 +153,7 @@ window.OBRAS = [
  },
  {
   "n": 10,
-  "titulo": "A ÉPOCA DE BUENO MACHADO, DNAÇARINO E CABARETIER: VIAGEM PELO TEMPO NA BELLE ÉPOQUE CARIOCA",
+  "titulo": "A ÉPOCA DE BUENO MACHADO, DANÇARINO E CABARETIER: VIAGEM PELO TEMPO NA BELLE ÉPOQUE CARIOCA",
   "cat": "cronica",
   "lang": "pt",
   "edicao": "1ª edição",
@@ -163,7 +165,8 @@ window.OBRAS = [
   "desc": "Um quadro histórico da primeira metade do século XX e do grande dançarino que, nas décadas de 1920 a 1940, conquistou a antiga Lapa com o seu concorrido Cabaré Brasil.",
   "img": "010.jpg",
   "id": "l010",
-  "destaque": true
+  "destaque": true,
+  "versao": "Sem imagens"
  },
  {
   "n": 11,
@@ -193,7 +196,8 @@ window.OBRAS = [
   "paginas": "340",
   "ano": 2015,
   "img": "012.jpg",
-  "id": "l012"
+  "id": "l012",
+  "versao": "Com imagens"
  },
  {
   "n": 13,
@@ -1549,7 +1553,7 @@ window.OBRAS = [
   "cat": "romance",
   "lang": "de",
   "edicao": "1ª edição",
-  "serie": "Die Abenteuer von Bartolomeu Brasileiro (Livro 3)",
+  "serie": "Die Abenteuer eines legendären Ritters des Christusordens (Livro 3)",
   "original": "UMA PASSAGEM PARA A ESPERANÇA: VIAJANDO NUMA CARAVELA EM BUSCA DO CABO DAS TORMENTAS - Livro 3",
   "asin": "B0GX3BWMK6",
   "paginas": "355",
@@ -1563,7 +1567,7 @@ window.OBRAS = [
   "cat": "romance",
   "lang": "de",
   "edicao": "1ª edição",
-  "serie": "Die Abenteuer von Bartolomeu Brasileiro (Livro 4)",
+  "serie": "Die Abenteuer eines legendären Ritters des Christusordens (Livro 4)",
   "original": "As Aventuras de um Cavaleiro Lendário da Ordem de Cristo - Livro 4",
   "asin": "B0GX395NSF",
   "paginas": "490",

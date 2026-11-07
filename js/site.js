@@ -42,7 +42,7 @@
   function linkImpresso(o) { return "https://www.amazon.com.br/dp/" + o.asinImpresso; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function meta(o) {
-    return [CAT[o.cat], o.lang !== "pt" ? IDI[o.lang] : "", o.ano].filter(Boolean).join(" · ");
+    return [CAT[o.cat], o.versao, o.lang !== "pt" ? IDI[o.lang] : "", o.ano].filter(Boolean).join(" · ");
   }
 
   function cartao(o) {
