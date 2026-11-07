@@ -149,3 +149,13 @@ dialog.ficha::backdrop { background: rgba(42,20,25,.6); }
 .biblio strong { font-family: var(--serif-titulo); font-size: 1.12rem; color: var(--vinho-escuro); }
 .categoria { text-align: center; font-size: 1.3rem; letter-spacing: .15em; text-transform: uppercase; color: var(--ouro); margin: 2rem 0 .8rem; }
 @media (max-width: 860px) { .biblio { padding-left: 1.6rem; } .biblio li { text-align: left; } }
+
+/* Biografia completa */
+.epigrafe { font-family: var(--serif-titulo); font-style: italic; font-size: 1.3rem; color: var(--tinta-suave); border-left: 3px solid var(--ouro); padding-left: 1.2rem; }
+.texto p.epigrafe::first-letter { all: unset; }
+.nome-nasc { font-weight: 600; margin-top: 1.5rem; }
+h2.bio-sec { font-size: 1.5rem; color: var(--vinho); margin: 2.4rem 0 .6rem; border-bottom: 1px solid var(--linha); padding-bottom: .3rem; }
+h3.bio-sec { font-size: 1.15rem; letter-spacing: .08em; color: var(--ouro); margin: 1.6rem 0 .4rem; }
+.bio-lista { padding-left: 2rem; margin: 0 0 1rem; max-width: none; }
+.bio-lista strong { font-size: 1.02rem; }
+.visite { margin-top: 2rem; }
