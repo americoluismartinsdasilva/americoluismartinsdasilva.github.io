@@ -160,3 +160,20 @@ h3.bio-sec { font-size: 1.15rem; letter-spacing: .08em; color: var(--ouro); marg
 .bio-lista strong { font-size: 1.02rem; }
 .visite { margin-top: 2rem; }
 .bio-grade .texto p::first-letter { all: unset; }
+
+/* Filtro de idiomas e contador */
+.filtros.idiomas { margin-top: -1.6rem; }
+.filtros.idiomas button { font-size: .85rem; padding: .3rem .8rem; }
+.contador { text-align: center; color: var(--tinta-suave); font-style: italic; margin: -1.2rem 0 2rem; }
+.ficha .botao { margin-top: .4rem; }
+.ficha .botao.vazado { margin-left: .4rem; }
+
+/* Três acessos da página inicial */
+.acessos { background: var(--vinho-escuro); padding: 3rem 0; border-top: 3px solid var(--ouro); }
+.acessos .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.acesso { display: block; text-decoration: none; color: var(--papel); border: 1px solid rgba(176,141,74,.6); padding: 2rem 1.6rem; text-align: center; transition: background .2s, transform .2s; }
+.acesso:hover, .acesso:focus-visible { background: rgba(255,255,255,.06); transform: translateY(-4px); color: #fff; }
+.acesso-num { display: block; font-family: var(--serif-titulo); color: var(--ouro); font-size: 1.4rem; letter-spacing: .2em; }
+.acesso strong { display: block; font-family: var(--serif-titulo); font-size: 1.9rem; font-weight: 600; margin: .4rem 0 .6rem; text-transform: uppercase; letter-spacing: .06em; }
+.acesso span:last-child { font-size: .98rem; color: #e6d9c2; }
+@media (max-width: 860px) { .acessos .container { grid-template-columns: 1fr; } }
