@@ -112,8 +112,9 @@
       return '<button data-f="' + g[0] + '" aria-pressed="' + (g[0] === filtro) + '">' + g[1] + "</button>";
     }).join("");
     var cxIdioma = document.getElementById("idiomas");
-    var langs = [["pt", "Em português"], ["todos", "Todos os idiomas"]].concat(
-      ["en", "es", "fr", "de", "it"].map(function (l) { return [l, IDI[l]]; }));
+    var langs = [["pt", "Em português"]].concat(
+      ["en", "es", "fr", "de", "it"].map(function (l) { return [l, IDI[l]]; }),
+      [["todos", "Todos os idiomas"]]);
     cxIdioma.innerHTML = langs.map(function (g) {
       return '<button data-l="' + g[0] + '" aria-pressed="' + (g[0] === idioma) + '">' + g[1] + "</button>";
     }).join("");
