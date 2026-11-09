@@ -1,5 +1,13 @@
 // Cabeçalho, rodapé, estante de livros e ficha de cada obra.
 (function () {
+  // Modo de prévia do painel: usa os dados ainda não publicados.
+  var PREVIA = /[?&]previa=1/.test(location.search);
+  if (PREVIA) {
+    try {
+      var p = JSON.parse(localStorage.getItem("painel-previa") || "null");
+      if (p) { window.OBRAS = p.obras; window.CATEGORIAS = p.categorias; window.IDIOMAS = p.idiomas; window.BOTOES = p.botoes; }
+    } catch (e) {}
+  }
   var paginas = [
     ["index.html", "Início"], ["obras.html", "Conheça as obras"], ["biografia.html", "Biografia"],
     ["bibliografia.html", "Bibliografia"], ["contato.html", "Contato"]
@@ -37,8 +45,8 @@
 
   // ——— Livros ———
   var OBRAS = window.OBRAS || [], CAT = window.CATEGORIAS || {}, IDI = window.IDIOMAS || {};
-  function capa(o) { return "img/livros/" + o.img; }
-  function linkAmazon(o) { return "https://www.amazon.com.br/dp/" + o.asin; }
+  function capa(o) { return /^(data:|https?:)/.test(o.img || "") ? o.img : "img/livros/" + o.img; }
+  function linkAmazon(o) { return o.asin ? "https://www.amazon.com.br/dp/" + o.asin : "https://www.amazon.com.br/s?k=" + encodeURIComponent(o.titulo + " Américo Luís Martins da Silva"); }
   function linkImpresso(o) { return "https://www.amazon.com.br/dp/" + o.asinImpresso; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function meta(o) {
@@ -106,7 +114,15 @@
   var estante = document.getElementById("estante");
   if (estante) {
     var filtro = "todas", idioma = "pt", termo = "";
-    var grupos = [["todas", "Todas"], ["literatura", "Literatura"], ["direito", "Direito"], ["biografia", "Biografias"]];
+    var BOTOES = window.BOTOES || [
+      { nome: "Literatura", categorias: ["romance", "conto", "poesia", "cronica"] },
+      { nome: "Direito", categorias: ["direito"] },
+      { nome: "Biografias", categorias: ["biografia"] }
+    ];
+    function slug(s) { return normal(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+    var porSlug = {};
+    BOTOES.forEach(function (b) { porSlug[slug(b.nome)] = b; });
+    var grupos = [["todas", "Todas"]].concat(BOTOES.map(function (b) { return [slug(b.nome), b.nome]; }));
     var caixa = document.getElementById("filtros");
     caixa.innerHTML = grupos.map(function (g) {
       return '<button data-f="' + g[0] + '" aria-pressed="' + (g[0] === filtro) + '">' + g[1] + "</button>";
@@ -135,7 +151,7 @@
     function normal(s) { return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
     function desenhar() {
       var lista = OBRAS.filter(function (o) {
-        var okCat = filtro === "todas" || (filtro === "literatura" ? o.cat !== "direito" && o.cat !== "biografia" : o.cat === filtro);
+        var okCat = filtro === "todas" || (porSlug[filtro] && porSlug[filtro].categorias.indexOf(o.cat) >= 0);
         var okLang = idioma === "todos" || o.lang === idioma;
         return okCat && okLang && (!termo || normal(o.titulo + " " + (o.serie || "") + " " + (o.original || "") + " " + (o.desc || "")).indexOf(termo) >= 0);
       });
@@ -143,8 +159,18 @@
       estante.innerHTML = lista.length ? lista.map(cartao).join("") :
         '<p style="grid-column:1/-1;text-align:center;font-style:italic">Nenhuma obra encontrada.</p>';
     }
-    var hash = location.hash.slice(1);
-    if (hash === "literatura" || hash === "direito" || hash === "biografia") caixa.querySelector('[data-f="' + hash + '"]').click();
+    var hash = decodeURIComponent(location.hash.slice(1));
+    if (hash === "biografia") hash = "biografias";
+    var alvo = /^(livro|ficha)=/.test(hash) ? OBRAS.filter(function (o) { return o.id === hash.split("=")[1]; })[0] : null;
+    if (alvo) {
+      // Prévia de um livro: mostra o idioma dele e destaca o cartão.
+      idioma = alvo.lang;
+      cxIdioma.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-l") === idioma); });
+      desenhar();
+      var cartaoEl = estante.querySelector('[data-id="' + alvo.id + '"]');
+      if (cartaoEl) { cartaoEl.classList.add("destacado"); window.scrollTo(0, cartaoEl.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 3); }
+      if (hash.indexOf("ficha=") === 0) abrirFicha(alvo.id);
+    } else if (porSlug[hash]) caixa.querySelector('[data-f="' + hash + '"]').click();
     else desenhar();
   }
 })();

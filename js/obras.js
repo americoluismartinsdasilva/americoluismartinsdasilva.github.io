@@ -2244,3 +2244,8 @@ window.CATEGORIAS = {
   cronica: "Crônica", biografia: "Biografia", direito: "Direito"
 };
 window.IDIOMAS = { pt: "Português", en: "Inglês", es: "Espanhol", fr: "Francês", de: "Alemão", it: "Italiano" };
+window.BOTOES = [
+ { "nome": "Literatura", "categorias": ["romance", "conto", "poesia", "cronica"] },
+ { "nome": "Direito", "categorias": ["direito"] },
+ { "nome": "Biografias", "categorias": ["biografia"] }
+];

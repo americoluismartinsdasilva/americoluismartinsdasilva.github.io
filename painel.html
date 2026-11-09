@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel do site — Américo Luís Martins da Silva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=202611091851">
+  <link rel="stylesheet" href="css/painel.css?v=202611091851">
+</head>
+<body class="painel">
+  <header class="topo">
+    <div class="container">
+      <span class="marca">Painel do site<small>Américo Luís Martins da Silva</small></span>
+      <span class="topo-acoes">
+        <a href="index.html" target="_blank" rel="noopener">Ver o site ↗</a>
+        <button id="btn-sair" hidden>Sair</button>
+      </span>
+    </div>
+  </header>
+
+  <main class="container painel-main">
+    <!-- Mensagens -->
+    <div id="aviso" class="aviso" role="status" hidden></div>
+
+    <!-- 0. Entrada: chave de acesso -->
+    <section id="tela-entrada" class="tela" hidden>
+      <h1>Bem-vindo ao painel</h1>
+      <p class="grande">Para começar, cole abaixo a sua <strong>chave de acesso</strong>. Você só precisa fazer isso <strong>uma vez</strong> neste computador.</p>
+      <label class="campo">
+        <span>Chave de acesso</span>
+        <input id="chave" type="password" autocomplete="off" placeholder="Cole aqui a chave (começa com ghp_)">
+      </label>
+      <button class="botao grande" id="btn-entrar">Entrar</button>
+      <p class="ajuda">Não tem a chave? Veja o vídeo “Como adicionar livros no site”, na parte “Primeira vez”.</p>
+    </section>
+
+    <!-- 1. Menu principal -->
+    <section id="tela-menu" class="tela" hidden>
+      <h1>O que você quer fazer?</h1>
+      <div class="menu-grande">
+        <button class="opcao" data-ir="novo"><span class="icone">＋</span><strong>Adicionar um livro novo</strong><span>Colocar no site um livro que acabou de sair</span></button>
+        <button class="opcao" data-ir="lista"><span class="icone">✎</span><strong>Editar ou apagar um livro</strong><span>Corrigir o título, a capa, o link da Amazon…</span></button>
+        <button class="opcao" data-ir="categorias"><span class="icone">☰</span><strong>Categorias e botões</strong><span>Criar categorias e os botões de filtro da página de obras</span></button>
+      </div>
+    </section>
+
+    <!-- 2. Lista de livros -->
+    <section id="tela-lista" class="tela" hidden>
+      <button class="voltar" data-ir="menu">← Voltar ao início</button>
+      <h1>Editar ou apagar um livro</h1>
+      <input id="lista-busca" class="busca" type="search" placeholder="Digite parte do título para procurar…" aria-label="Procurar livro">
+      <p class="ajuda" id="lista-contador"></p>
+      <div id="lista-livros" class="lista-livros"></div>
+    </section>
+
+    <!-- 3. Formulário do livro -->
+    <section id="tela-form" class="tela" hidden>
+      <button class="voltar" data-ir="menu">← Voltar ao início (sem salvar)</button>
+      <h1 id="form-titulo">Adicionar um livro novo</h1>
+      <p class="ajuda">Preencha o que souber. Só o <strong>título</strong> e a <strong>capa</strong> são obrigatórios. Depois clique em <strong>Ver como vai ficar</strong> no fim da página.</p>
+      <form id="form-livro" class="form-livro" autocomplete="off">
+        <div class="passo">
+          <h2><span class="num">1</span> Capa do livro</h2>
+          <div class="capa-escolha">
+            <img id="capa-previa" alt="Capa escolhida" hidden>
+            <div>
+              <label class="botao vazado arquivo">Escolher a imagem da capa…<input id="capa-arquivo" type="file" accept="image/*"></label>
+              <p class="ajuda">Use a imagem da capa salva no computador (por exemplo, a mesma que você enviou à Amazon).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <h2><span class="num">2</span> Título e tipo</h2>
+          <label class="campo"><span>Título do livro *</span><input name="titulo" required></label>
+          <div class="duas">
+            <label class="campo"><span>Categoria</span><select name="cat" id="sel-cat"></select></label>
+            <label class="campo"><span>Idioma</span><select name="lang" id="sel-lang"></select></label>
+          </div>
+          <label class="campo"><span>Série (se fizer parte de uma série)</span><input name="serie" placeholder="Ex.: As Aventuras de Bartolomeu Brasileiro (Livro 3)"></label>
+          <label class="campo"><span>Se for tradução: título original em português</span><input name="original" placeholder="Deixe em branco se não for tradução"></label>
+          <label class="campo"><span>Observação curta (aparece ao lado da categoria)</span><input name="versao" placeholder="Ex.: Com imagens"></label>
+        </div>
+
+        <div class="passo">
+          <h2><span class="num">3</span> Resumo</h2>
+          <label class="campo"><span>Resumo do livro (aparece quando o leitor clica na capa)</span><textarea name="desc" rows="5"></textarea></label>
+        </div>
+
+        <div class="passo">
+          <h2><span class="num">4</span> Links da Amazon</h2>
+          <p class="ajuda">Abra a página do livro na Amazon, copie o endereço lá em cima (na barra do navegador) e cole aqui. O painel entende sozinho.</p>
+          <label class="campo"><span>Endereço do <strong>e-book</strong> na Amazon</span><input name="linkEbook" placeholder="https://www.amazon.com.br/…/dp/B0…"></label>
+          <p class="ajuda codigo" id="cod-ebook"></p>
+          <label class="campo"><span>Endereço do <strong>livro impresso</strong> na Amazon (se houver)</span><input name="linkImpresso" placeholder="https://www.amazon.com.br/…/dp/…"></label>
+          <p class="ajuda codigo" id="cod-impresso"></p>
+        </div>
+
+        <div class="passo">
+          <h2><span class="num">5</span> Outros dados (opcional)</h2>
+          <div class="quatro">
+            <label class="campo"><span>Edição</span><input name="edicao" placeholder="1ª edição"></label>
+            <label class="campo"><span>Ano</span><input name="ano" inputmode="numeric" placeholder="2026"></label>
+            <label class="campo"><span>Páginas</span><input name="paginas" inputmode="numeric"></label>
+            <label class="campo"><span>ISBN</span><input name="isbn" placeholder="978-…"></label>
+          </div>
+          <label class="marcar"><input type="checkbox" name="capaDura"> Tem edição de capa dura</label>
+          <label class="marcar"><input type="checkbox" name="destaque"> Mostrar na “Estante de destaques” da página inicial</label>
+        </div>
+
+        <div class="acoes-fim">
+          <button type="submit" class="botao grande">Ver como vai ficar →</button>
+          <button type="button" class="botao vazado grande perigo" id="btn-apagar" hidden>Apagar este livro</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 4. Categorias e botões -->
+    <section id="tela-categorias" class="tela" hidden>
+      <button class="voltar" data-ir="menu">← Voltar ao início (sem salvar)</button>
+      <h1>Categorias e botões</h1>
+      <div class="passo">
+        <h2><span class="num">1</span> Categorias</h2>
+        <p class="ajuda">Cada livro pertence a uma categoria. Você pode mudar o nome de uma categoria ou criar uma nova.</p>
+        <div id="lista-cats" class="lista-cats"></div>
+        <div class="linha-nova">
+          <input id="nova-cat" placeholder="Nome da nova categoria (ex.: Infantil)">
+          <button class="botao vazado" id="btn-add-cat">＋ Criar categoria</button>
+        </div>
+      </div>
+      <div class="passo">
+        <h2><span class="num">2</span> Botões da página “Conheça as obras”</h2>
+        <p class="ajuda">São os botões que o visitante clica para filtrar os livros (o botão “Todas” sempre aparece primeiro). Marque quais categorias cada botão mostra.</p>
+        <div id="lista-botoes"></div>
+        <button class="botao vazado" id="btn-add-botao">＋ Criar botão</button>
+      </div>
+      <div class="acoes-fim">
+        <button class="botao grande" id="btn-previa-cats">Ver como vai ficar →</button>
+      </div>
+    </section>
+
+    <!-- 5. Prévia -->
+    <section id="tela-previa" class="tela" hidden>
+      <h1 id="previa-titulo">Veja como vai ficar</h1>
+      <p class="grande" id="previa-texto">Isto ainda <strong>não</strong> está no site. Confira e, se estiver tudo certo, clique em <strong>Confirmar e publicar</strong>.</p>
+      <div class="abas" id="previa-abas">
+        <button data-aba="ficha" aria-pressed="true">Ficha do livro</button>
+        <button data-aba="pagina" aria-pressed="false">Página “Conheça as obras”</button>
+      </div>
+      <iframe id="previa-frame" title="Prévia do site"></iframe>
+      <div class="acoes-fim">
+        <button class="botao grande" id="btn-confirmar">✔ Confirmar e publicar</button>
+        <button class="botao vazado grande" id="btn-corrigir">← Voltar e corrigir</button>
+      </div>
+    </section>
+
+    <!-- 6. Concluído -->
+    <section id="tela-pronto" class="tela" hidden>
+      <h1>✔ Pronto!</h1>
+      <p class="grande" id="pronto-texto">A alteração foi enviada para o site.</p>
+      <p class="grande">O site leva de <strong>2 a 10 minutos</strong> para mostrar a novidade. Se não aparecer, espere um pouco e aperte a tecla <strong>F5</strong> para recarregar a página.</p>
+      <div class="acoes-fim">
+        <a class="botao grande" href="obras.html" target="_blank" rel="noopener">Ver o site</a>
+        <button class="botao vazado grande" data-ir="menu">Voltar ao início do painel</button>
+      </div>
+    </section>
+
+    <div id="carregando" class="carregando" hidden><div class="roda"></div><p id="carregando-texto">Aguarde…</p></div>
+  </main>
+
+  <script src="js/painel.js?v=202611091851"></script>
+</body>
+</html>

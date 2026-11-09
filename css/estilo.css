@@ -177,3 +177,6 @@ h3.bio-sec { font-size: 1.15rem; letter-spacing: .08em; color: var(--ouro); marg
 .acesso strong { display: block; font-family: var(--serif-titulo); font-size: 1.9rem; font-weight: 600; margin: .4rem 0 .6rem; text-transform: uppercase; letter-spacing: .06em; }
 .acesso span:last-child { font-size: .98rem; color: #e6d9c2; }
 @media (max-width: 860px) { .acessos .container { grid-template-columns: 1fr; } }
+
+/* Cartão destacado na prévia do painel */
+.livro.destacado .capa { outline: 4px solid var(--ouro); outline-offset: 6px; }
