@@ -204,7 +204,7 @@
     $("#btn-apagar").hidden = !o;
     var img = $("#capa-previa");
     if (o) {
-      ["titulo", "cat", "lang", "serie", "original", "versao", "desc", "edicao", "ano", "paginas", "isbn"].forEach(function (k) { if (f.elements[k]) f.elements[k].value = o[k] == null ? "" : o[k]; });
+      ["titulo", "cat", "lang", "coautoria", "serie", "original", "versao", "desc", "edicao", "ano", "paginas", "isbn"].forEach(function (k) { if (f.elements[k]) f.elements[k].value = o[k] == null ? "" : o[k]; });
       f.elements.linkEbook.value = o.asin ? "https://www.amazon.com.br/dp/" + o.asin : "";
       f.elements.linkImpresso.value = o.asinImpresso ? "https://www.amazon.com.br/dp/" + o.asinImpresso : "";
       f.elements.capaDura.checked = !!o.capaDura;
@@ -257,7 +257,7 @@
       livro.n = maior + 1;
       livro.id = "l" + String(livro.n).padStart(3, "0");
     }
-    ["titulo", "cat", "lang", "serie", "original", "versao", "desc", "edicao", "isbn"].forEach(function (k) {
+    ["titulo", "cat", "lang", "coautoria", "serie", "original", "versao", "desc", "edicao", "isbn"].forEach(function (k) {
       if (v(k)) livro[k] = v(k); else delete livro[k];
     });
     if (/^\d+$/.test(v("ano"))) livro.ano = +v("ano"); else delete livro.ano;

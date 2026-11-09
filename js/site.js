@@ -57,6 +57,7 @@
     return '<button class="livro" data-id="' + o.id + '">' +
       '<div class="capa"><img src="' + capa(o) + '" alt="Capa de ' + esc(o.titulo) + '" loading="lazy"></div>' +
       "<h3>" + esc(o.titulo) + "</h3>" +
+      (o.coautoria ? '<div class="meta">Com ' + esc(o.coautoria) + "</div>" : "") +
       '<div class="meta">' + meta(o) + "</div></button>";
   }
 
@@ -81,6 +82,7 @@
       "<div>" +
       '<div class="sobretitulo">' + meta(o) + "</div>" +
       "<h2>" + esc(o.titulo) + "</h2>" +
+      (o.coautoria ? '<div class="serie"><strong>Coautoria:</strong> ' + esc(o.coautoria) + "</div>" : "") +
       (o.serie ? '<div class="serie">Série “' + esc(o.serie) + "”</div>" : "") +
       (o.original ? '<div class="serie">Tradução da obra “' + esc(o.original) + "”</div>" : "") +
       (o.desc ? "<p>" + esc(o.desc) + "</p>" : "") +
@@ -153,7 +155,7 @@
       var lista = OBRAS.filter(function (o) {
         var okCat = filtro === "todas" || (porSlug[filtro] && porSlug[filtro].categorias.indexOf(o.cat) >= 0);
         var okLang = idioma === "todos" || o.lang === idioma;
-        return okCat && okLang && (!termo || normal(o.titulo + " " + (o.serie || "") + " " + (o.original || "") + " " + (o.desc || "")).indexOf(termo) >= 0);
+        return okCat && okLang && (!termo || normal(o.titulo + " " + (o.coautoria || "") + " " + (o.serie || "") + " " + (o.original || "") + " " + (o.desc || "")).indexOf(termo) >= 0);
       });
       contador.textContent = lista.length + (lista.length === 1 ? " obra" : " obras");
       estante.innerHTML = lista.length ? lista.map(cartao).join("") :

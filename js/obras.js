@@ -931,7 +931,8 @@ window.OBRAS = [
   "ano": 2020,
   "capaDura": true,
   "img": "059.jpg",
-  "id": "l059"
+  "id": "l059",
+  "coautoria": "Carolina Cesar Martins da Silva"
  },
  {
   "n": 60,
@@ -1150,7 +1151,8 @@ window.OBRAS = [
   "ano": 2023,
   "capaDura": true,
   "img": "073.jpg",
-  "id": "l073"
+  "id": "l073",
+  "coautoria": "Carolina Cesar Martins da Silva"
  },
  {
   "n": 74,
@@ -1212,7 +1214,8 @@ window.OBRAS = [
   "ano": 2024,
   "capaDura": true,
   "img": "077.jpg",
-  "id": "l077"
+  "id": "l077",
+  "coautoria": "Carolina Cesar Martins da Silva"
  },
  {
   "n": 78,
@@ -1275,7 +1278,8 @@ window.OBRAS = [
   "ano": 2025,
   "capaDura": true,
   "img": "081.jpg",
-  "id": "l081"
+  "id": "l081",
+  "coautoria": "Carolina Cesar Martins da Silva"
  },
  {
   "n": 82,
@@ -1405,7 +1409,8 @@ window.OBRAS = [
   "ano": 2026,
   "capaDura": true,
   "img": "089.jpg",
-  "id": "l089"
+  "id": "l089",
+  "coautoria": "Carolina Cesar Martins da Silva"
  },
  {
   "n": 90,
@@ -2236,6 +2241,17 @@ window.OBRAS = [
   "ano": 2026,
   "img": "153.jpg",
   "id": "l153"
+ },
+ {
+  "n": 154,
+  "id": "l154",
+  "titulo": "The Solo Flight and Other Short Stories",
+  "cat": "conto",
+  "lang": "en",
+  "original": "O Voo-Solo e Outros Contos",
+  "asin": "B0HQVMJDXF",
+  "ano": 2026,
+  "img": "154.jpg"
  }
 ];
 
