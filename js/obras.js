@@ -2252,6 +2252,83 @@ window.OBRAS = [
   "asin": "B0HQVMJDXF",
   "ano": 2026,
   "img": "154.jpg"
+ },
+ {
+  "n": 155,
+  "id": "l155",
+  "titulo": "Collected Poems of an Occasional Poet",
+  "cat": "poesia",
+  "lang": "en",
+  "original": "Poesias Reunidas de um Poeta Eventual",
+  "asin": "B0HQXMLLZ3",
+  "ano": 2026,
+  "img": "155.jpg"
+ },
+ {
+  "n": 156,
+  "id": "l156",
+  "titulo": "Employee Participation in Company Profits, Results, and Management",
+  "cat": "direito",
+  "lang": "en",
+  "original": "A Participação dos Empregados nos Lucros, nos Resultados e na Gestão da Empresa",
+  "asin": "B0HQXFXSPC",
+  "ano": 2026,
+  "img": "156.jpg"
+ },
+ {
+  "n": 157,
+  "id": "l157",
+  "titulo": "Public Registry of Business Activity - Volume 2",
+  "cat": "direito",
+  "lang": "en",
+  "original": "Registro Público da Atividade Empresarial – Volume 2: Registro Público da Propriedade Industrial",
+  "asin": "B0HN6JN9HR",
+  "ano": 2026,
+  "img": "157.jpg"
+ },
+ {
+  "n": 158,
+  "id": "l158",
+  "titulo": "Family Law and Alternative Customs - Volume 1",
+  "cat": "direito",
+  "lang": "en",
+  "original": "Direito de Família e Costumes Alternativos – Volume 1",
+  "asin": "B0HH754VMY",
+  "ano": 2026,
+  "img": "158.jpg"
+ },
+ {
+  "n": 159,
+  "id": "l159",
+  "titulo": "Aviation Law and Outer Space Law - Volume 3 (Aviation Law and Space Law)",
+  "cat": "direito",
+  "lang": "en",
+  "original": "Direito Aeronáutico e do Espaço Exterior – 3° Volume",
+  "asin": "B0H29GR8BF",
+  "ano": 2026,
+  "img": "159.jpg"
+ },
+ {
+  "n": 160,
+  "id": "l160",
+  "titulo": "A Man of the Sea Living Among the Natives of Slocan Lake",
+  "cat": "romance",
+  "lang": "en",
+  "original": "Um Homem do Mar Vivendo Entre os Nativos do Lago Slocan",
+  "asin": "B0HQXK78QS",
+  "ano": 2026,
+  "img": "160.jpg"
+ },
+ {
+  "n": 161,
+  "id": "l161",
+  "titulo": "The Enforcement of Public Treasury Active Debt – Volume 2",
+  "cat": "direito",
+  "lang": "en",
+  "original": "A Execução da Dívida Ativa da Fazenda Pública – Volume 2",
+  "asin": "B0HR2VNWCS",
+  "ano": 2026,
+  "img": "161.jpg"
  }
 ];
 
